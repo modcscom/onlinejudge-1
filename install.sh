@@ -266,6 +266,7 @@ install_onlinejudge(){
     /usr/sbin/useradd -m -u 1536 judge
     cd /home/judge/
     git clone https://github.com/Greenhat1998/onlinejudge
+    cd onlinejudge
     unzip onlinejudge.zip
     rm -rf onlinejudge.zip
     rm -rf install.sh
