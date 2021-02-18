@@ -126,7 +126,7 @@ install_dependencies(){
             nginx
             php72w-cli php72w-fpm php72w-gd php72w-mbstring php72w-mysqlnd php72w-xml
             mariadb mariadb-devel mariadb-server
-            gcc-c++ glibc-static libstdc++-static git make gcc
+            gcc-c++ glibc-static libstdc++-static git unzip make gcc
             java-1.8.0-openjdk java-1.8.0-openjdk-devel
             python36
         )
@@ -139,7 +139,7 @@ install_dependencies(){
             nginx
             mysql-server
             php-fpm php-mysql php-common php-gd php-zip php-mbstring php-xml
-            libmysqlclient-dev libmysql++-dev git make gcc g++
+            libmysqlclient-dev libmysql++-dev git unzip make gcc g++
         )
         ver=`echo "$(getversion)" | awk -F '.' '{print $1}'`
         if [ $ver -le 16 ]; then
@@ -267,7 +267,7 @@ install_onlinejudge(){
     cd /home/judge/
     wget https://raw.githubusercontent.com/Greenhat1998/onlinejudge/main/onlinejudge.zip
     mkdir onlinejudge
-    unzip onlinejudge.zip -d /onlinejudge
+    unzip onlinejudge.zip -d onlinejudge
     config_onlinejudge
     if check_sys packageManager yum; then
         config_firewall
