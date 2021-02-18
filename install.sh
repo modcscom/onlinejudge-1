@@ -1,13 +1,5 @@
-#!/usr/bin/env bash
-PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
-export PATH
 
-red='\033[0;31m'
-green='\033[0;32m'
-yellow='\033[0;33m'
-plain='\033[0m'
-
-[[ $EUID -ne 0 ]] && echo -e "[${red}Error${plain}] This script must be run as root!" && exit 1
+[[ $EUID -ne 0 ]] && echo -e "[Error] This script must be run as root!" && exit 1
 
 disable_selinux(){
     if [ -s /etc/selinux/config ] && grep 'SELINUX=enforcing' /etc/selinux/config; then
@@ -102,26 +94,25 @@ debianversion(){
 error_detect_depends(){
     local command=$1
     local depend=`echo "${command}" | awk '{print $4}'`
-    echo -e "[${green}Info${plain}] Starting to install package ${depend}"
+    echo -e "[Info] Starting to install package ${depend}"
     ${command} > /dev/null 2>&1
     if [ $? -ne 0 ]; then
-        echo -e "[${red}Error${plain}] Failed to install ${red}${depend}${plain}"
+        echo -e "[Error] Failed to install ${depend}"
         exit 1
     fi
 }
 
-
 install_dependencies(){
     if check_sys packageManager yum; then
-        echo -e "[${green}Info${plain}] Checking the EPEL repository..."
+        echo -e "[Info] Checking the EPEL repository..."
         yum install -y epel-release
-        [ ! -f /etc/yum.repos.d/epel.repo ] && echo -e "[${red}Error${plain}] Install EPEL repository failed, please check it." && exit 1
+        [ ! -f /etc/yum.repos.d/epel.repo ] && echo -e "[Error] Install EPEL repository failed, please check it." && exit 1
         [ ! "$(command -v yum-config-manager)" ] && yum install -y yum-utils > /dev/null 2>&1
         [ x"$(yum-config-manager epel | grep -w enabled | awk '{print $3}')" != x"True" ] && yum-config-manager --enable epel > /dev/null 2>&1
         rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
         rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
         
-        echo -e "[${green}Info${plain}] Checking the EPEL repository complete..."
+        echo -e "[Info] Checking the EPEL repository complete..."
 
         yum_depends=(
             nginx
@@ -158,7 +149,7 @@ install_dependencies(){
 
 install_check(){
     if (! check_sys packageManager yum && ! check_sys packageManager apt) || centosversion 5; then
-        echo -e "[${red}Error${plain}] Your OS is not supported to run it!"
+        echo -e "[Error] Your OS is not supported to run it!"
         echo "Please change to CentOS 6+/Debian 7+/Ubuntu 16+ and try again."
         exit 1
     fi
@@ -288,8 +279,8 @@ install_onlinejudge(){
     echo "App running at:"
     echo "http://your_ip_address"
     echo
-    echo -e "[${green}Administrator account${plain}] admin"
-    echo -e "[${green}Password${plain}] 123456"
+    echo -e "[Administrator account] admin"
+    echo -e "[Password] 123456"
     echo
 }
 
