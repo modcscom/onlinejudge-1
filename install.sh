@@ -266,8 +266,7 @@ install_onlinejudge(){
     /usr/sbin/useradd -m -u 1536 judge
     cd /home/judge/
     wget https://raw.githubusercontent.com/Greenhat1998/onlinejudge/main/onlinejudge.zip
-    mkdir onlinejudge
-    unzip onlinejudge.zip -d onlinejudge
+    unzip onlinejudge.zip
     config_onlinejudge
     if check_sys packageManager yum; then
         config_firewall
