@@ -110,6 +110,7 @@ error_detect_depends(){
     fi
 }
 
+
 install_dependencies(){
     if check_sys packageManager yum; then
         echo -e "[${green}Info${plain}] Checking the EPEL repository..."
@@ -126,7 +127,7 @@ install_dependencies(){
             nginx
             php72w-cli php72w-fpm php72w-gd php72w-mbstring php72w-mysqlnd php72w-xml
             mariadb mariadb-devel mariadb-server
-            gcc-c++ glibc-static libstdc++-static git unzip make gcc
+            gcc-c++ glibc-static libstdc++-static git make gcc
             java-1.8.0-openjdk java-1.8.0-openjdk-devel
             python36
         )
@@ -139,7 +140,7 @@ install_dependencies(){
             nginx
             mysql-server
             php-fpm php-mysql php-common php-gd php-zip php-mbstring php-xml
-            libmysqlclient-dev libmysql++-dev git unzip make gcc g++
+            libmysqlclient-dev libmysql++-dev git make gcc g++
         )
         ver=`echo "$(getversion)" | awk -F '.' '{print $1}'`
         if [ $ver -le 16 ]; then
@@ -265,7 +266,8 @@ install_onlinejudge(){
 
     /usr/sbin/useradd -m -u 1536 judge
     cd /home/judge/
-    git clone https://github.com/Greenhat1998/onlinejudge
+    git clone https://github.com/Greenhat1998/onlinejudge.git
+
     config_onlinejudge
     if check_sys packageManager yum; then
         config_firewall
@@ -288,8 +290,6 @@ install_onlinejudge(){
     echo
     echo -e "[${green}Administrator account${plain}] admin"
     echo -e "[${green}Password${plain}] 123456"
-    echo
-    echo "Enjoy it!"
     echo
 }
 
