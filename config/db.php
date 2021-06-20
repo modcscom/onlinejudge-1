@@ -3,8 +3,8 @@
 return [
     'class' => 'yii\db\Connection',
     'dsn' => 'mysql:host=localhost;dbname=onlinejudge',
-    'username' => 'root',
-    'password' => '123456',
+    'username' => 'debian-sys-maint',
+    'password' => 'puaOAZn8UyjuQ9el',
     'charset' => 'utf8',
 
     // Schema cache options (for production environment)

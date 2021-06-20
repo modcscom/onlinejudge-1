@@ -57,7 +57,7 @@ pre {
     line-height: 55px;
 }
 #header {
-    background-color: #228f65;
+    background-color: #353d39;
     font-size: 1.8rem
     margin-bottom: 0;
     border: medium none;
@@ -69,7 +69,7 @@ pre {
 .page-header .navbar-brand img {
     width: 105px;
     height: 60px;
-    font-size: 1.8rem;
+    font-size: 1.0rem;
 }
 .jumbotron {
     background-color: transparent;

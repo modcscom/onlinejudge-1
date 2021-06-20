@@ -44,13 +44,14 @@ AppAsset::register($this);
         </div>
     </header>
     <?php
+    
     NavBar::begin([
         'brandLabel' => Yii::$app->setting->get('ojName'),
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-default',
         ],
-    ]);
+    ]); 
     $menuItems = [
         ['label' => '<span class="glyphicon glyphicon-home"></span> ' . Yii::t('app', 'Home'), 'url' => ['/site/index']],
         ['label' => '<span class="glyphicon glyphicon-list"></span> ' . Yii::t('app', 'Problems'), 'url' => ['/problem/index']],
