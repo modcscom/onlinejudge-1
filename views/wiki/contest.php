@@ -102,7 +102,7 @@
     </table>
     <hr>
     <h3>Cách tính điểm sau khi tham gia cuộc thi</h3>
-    <p>Hệ thống sửu dụng thuật toán đánh giá điẻm Elo, tham khảo tại: 
+    <p>Hệ thống sử dụng thuật toán đánh giá điểm Elo, tham khảo tại: 
         <a href="https://en.wikipedia.org/wiki/Elo_rating_system" target="_blank">
             https://en.wikipedia.org/wiki/Elo_rating_system
         </a>

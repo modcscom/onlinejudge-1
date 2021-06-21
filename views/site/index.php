@@ -8,7 +8,7 @@ $this->title = "Home";
     <div class="col-md-8">
         <div class="jumbotron">
             <h1>Hello world!</h1>
-            <p>Welcome to T36OJ - T36 Online Judge </p>
+            <p>Welcome to <?= Yii::$app->setting->get('ojName') ?> </p>
             <p>Power by <a href="https://facebook.com/vietthientran.301/">Greenhat1998 </a> - based on <a href="http://www.hustoj.org/">HUSTOJ</a></h3>
             <p>The People's Police University of Technology and Logictics</p>
         </div>
