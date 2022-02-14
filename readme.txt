@@ -1,3 +1,3 @@
-git clone https://github.com/Greenhat1998/onlinejudge.git
+git clone https://github.com/modcscom/onlinejudge-1.git
 cd onlinejudge
 bash install.sh
